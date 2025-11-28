@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Block Media</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    body{font-family: Arial, sans-serif; width:220px; padding:12px;}
+    .switch{display:flex; align-items:center; justify-content:space-between; margin-bottom:12px;}
+    button{width:100%; padding:8px; border-radius:6px; border:1px solid #ccc; background:#fff; cursor:pointer;}
+    small{color:#666}
+  </style>
+</head>
+<body>
+  <div class="switch">
+    <div>
+      <strong>Block images & videos</strong>
+      <div><small>Click placeholder to view media</small></div>
+    </div>
+    <label>
+      <input id="toggle" type="checkbox" />
+    </label>
+  </div>
+  <button id="reload">Reload tab (apply changes)</button>
+  <script src="popup.js"></script>
+</body>
+</html>

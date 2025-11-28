@@ -1,0 +1,22 @@
+/* styles.css - minimal styles for placeholders & lightbox */
+.bm-placeholder {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* distinct style for video placeholder */
+.bm-video-placeholder::after {
+  content: '▶';
+  display: block;
+  font-size: 28px;
+  text-align: center;
+  margin-top: 10%;
+  color: rgba(0,0,0,0.4);
+}
+
+/* lightbox inner media resets */
+.bm-lightbox-overlay video,
+.bm-lightbox-overlay img {
+  box-shadow: 0 6px 30px rgba(0,0,0,0.5);
+  border-radius: 6px;
+}
