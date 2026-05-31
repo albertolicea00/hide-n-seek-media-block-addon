@@ -16,8 +16,9 @@ Please delete options that are not relevant.
 Please describe the tests that you ran to verify your changes. Provide instructions so we can reproduce.
 - [ ] Tested on Chrome
 - [ ] Tested on Edge / Brave
-- [ ] Verified exceptions are respected
-- [ ] Verified Force Clean works as expected
+- [ ] Verified media is blurred automatically
+- [ ] Verified click-to-reveal works
+- [ ] Verified ON/OFF toggle works
 
 ## Checklist:
 - [ ] My code follows the style guidelines of this project

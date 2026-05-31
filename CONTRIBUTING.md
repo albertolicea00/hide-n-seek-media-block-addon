@@ -1,44 +1,77 @@
-# Contributing to Hide & Seek
+# Contributing to Hide & Seek 🙈
 
-First off, thank you for considering contributing to Hide & Seek! It's people like you that make open source tools great.
+Thank you for your interest in contributing to Hide & Seek! This guide will help you get started.
 
-## How Can I Contribute?
+## Getting Started
 
-### Reporting Bugs
-If you find a bug, please create an issue in our repository. When filing an issue, make sure to answer these questions:
-- What version of the browser are you using?
-- What operating system are you on?
-- What did you do?
-- What did you expect to see?
-- What did you see instead?
+1. **Fork** the repository on GitHub
+2. **Clone** your fork locally:
+   ```bash
+   git clone https://github.com/YOUR_USERNAME/hide-n-seek-block-media-addon.git
+   ```
+3. **Load** the extension in Chrome:
+   - Go to `chrome://extensions/`
+   - Enable Developer Mode
+   - Click "Load unpacked" and select the project folder
 
-### Suggesting Enhancements
-If you have an idea for a new feature, we'd love to hear it! Open an issue and provide as much detail as possible about your idea, why it would be useful, and how you imagine it working.
+## Development Workflow
 
-### Pull Requests
 We use a two-branch workflow:
 - `main`: Stable release version.
 - `beta`: Active development branch.
 
 **All Pull Requests must be directed to the `beta` branch.**
 
-1. Fork the repository and checkout the `beta` branch.
-2. Create a new branch from `beta` (`git checkout -b feature/my-cool-feature`).
-3. Make your changes.
-4. Commit your changes (`git commit -am 'Add some feature'`).
-5. Push to your branch (`git push origin feature/my-cool-feature`).
-6. Open a Pull Request against the `beta` branch.
+1. Create a new branch from `beta` for your feature or fix:
 
-## Development Setup
-To set up the project locally for development:
-1. Clone the repository.
-2. Open your Chromium-based browser and navigate to `chrome://extensions/`.
-3. Enable "Developer mode".
-4. Click "Load unpacked" and select the project directory.
+   ```bash
+   git checkout -b feature/your-feature-name beta
+   ```
+
+2. Make your changes — the extension uses **Manifest V3** with:
+   - `background.js` — Service Worker for state management
+   - `content_script.js` / `styles.css` — Core obfuscation and reveal logic
+   - `popup.html` / `popup.js` — Extension toggle UI
+
+3. **Test** your changes:
+   - Reload the extension from `chrome://extensions/`
+   - Test turning the protection ON and OFF via the popup
+   - Verify images, videos, and backgrounds are blurred correctly
+   - Verify the click-to-reveal functionality works as intended
+   - Check the browser console for any errors
+
+4. Commit your changes with a clear message:
+
+   ```bash
+   git commit -m "feat: add support for blurring background images"
+   ```
+
+5. Push and open a Pull Request
 
 ## Code Style
-- Keep the code clean and well-commented.
-- Follow the existing formatting conventions.
-- Use meaningful variable and function names.
 
-Thank you for contributing! 🚀
+- Use **vanilla JavaScript** and **pure CSS** (no frameworks needed)
+- Use `const` and `let` instead of `var`
+- Add error handling with `try/catch` blocks
+- Include `console.log` messages prefixed with `🙈 Hide & Seek:` for debugging
+
+## Reporting Issues
+
+When reporting a bug, please include:
+
+- Browser name and version
+- Steps to reproduce the issue
+- Expected vs actual behavior
+- Console errors (if any)
+
+## Feature Requests
+
+We welcome ideas! Please open an issue with the `enhancement` label and describe:
+
+- What problem it solves
+- How you'd like it to work
+- Any alternatives you've considered
+
+---
+
+Thank you for helping make Hide & Seek better! 🙌
