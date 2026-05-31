@@ -15,16 +15,7 @@ chrome.storage.sync.get([KEY], (res) => {
 toggle.addEventListener('change', () => {
   const enabled = toggle.checked;
   chrome.storage.sync.set({ [KEY]: enabled }, () => {
-    // inform current tab to re-run immediately by re-injecting content script
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-      if (!tabs || !tabs[0]) return;
-      chrome.scripting.executeScript({
-        target: { tabId: tabs[0].id },
-        files: ['content_script.js']
-      }, () => {
-        // done
-      });
-    });
+    // UI updated, content_script.js receives the change via onChanged listener automatically.
   });
 });
 

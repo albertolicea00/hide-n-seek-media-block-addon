@@ -1,22 +1,19 @@
-/* styles.css - minimal styles for placeholders & lightbox */
-.bm-placeholder {
-  box-sizing: border-box;
-  overflow: hidden;
+/* styles.css - High performance media obfuscation */
+
+html.bm-active img:not(.bm-revealed),
+html.bm-active video:not(.bm-revealed),
+html.bm-active iframe:not(.bm-revealed),
+html.bm-active [style*="background-image"]:not(.bm-revealed) {
+  /* Extreme blur completely masks shapes and explicit details */
+  filter: blur(40px) contrast(0.5) brightness(0.8) grayscale(100%) !important;
+  opacity: 0.9 !important;
+  cursor: pointer !important;
 }
 
-/* distinct style for video placeholder */
-.bm-video-placeholder::after {
-  content: '▶';
-  display: block;
-  font-size: 28px;
-  text-align: center;
-  margin-top: 10%;
-  color: rgba(0,0,0,0.4);
-}
-
-/* lightbox inner media resets */
-.bm-lightbox-overlay video,
-.bm-lightbox-overlay img {
-  box-shadow: 0 6px 30px rgba(0,0,0,0.5);
-  border-radius: 6px;
+html.bm-active img:not(.bm-revealed):hover,
+html.bm-active video:not(.bm-revealed):hover,
+html.bm-active iframe:not(.bm-revealed):hover,
+html.bm-active [style*="background-image"]:not(.bm-revealed):hover {
+  filter: blur(20px) contrast(0.6) grayscale(100%) brightness(0.9) !important;
+  transition: filter 0.2s ease !important;
 }
