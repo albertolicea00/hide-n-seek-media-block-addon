@@ -9,10 +9,11 @@
     "default_popup": "popup.html",
     "default_title": "Block Media",
     "default_icon": {
-      "16": "icons/icon16.png",
-      "32": "icons/icon32.png",
-      "48": "icons/icon48.png",
-      "128": "icons/icon128.png"
+      "16": "icons/icon-show-16.png",
+      "32": "icons/icon-show-32.png",
+      "48": "icons/icon-show-48.png",
+      "64": "icons/icon-show-64.png",
+      "128": "icons/icon-show-128.png"
     }
   },
   "background": {
@@ -27,10 +28,10 @@
     }
   ],
   "icons": {
-    "16": "icons/icon16.png",
-    "32": "icons/icon32.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
+    "16": "icons/icon-show-16.png",
+    "32": "icons/icon-show-32.png",
+    "48": "icons/icon-show-48.png",
+    "128": "icons/icon-show-128.png"
   },
   "web_accessible_resources": [
   {

@@ -99,11 +99,12 @@ Hide N Seek/
 ├── styles.css          # Injected styles — CSS filters for obfuscation
 ├── popup.html          # Extension popup UI
 ├── popup.js            # Popup logic — toggles protection on/off
-├── icons/              # Extension icons (16, 32, 48, 128)
-│   ├── icon16.png
-│   ├── icon32.png
-│   ├── icon48.png
-│   └── icon128.png
+├── icons/              # Extension icons (16, 32, 48, 64, 128)
+│   ├── icon-hide-16.png / icon-show-16.png
+│   ├── icon-hide-32.png / icon-show-32.png
+│   ├── icon-hide-48.png / icon-show-48.png
+│   ├── icon-hide-64.png / icon-show-64.png
+│   └── icon-hide-128.png / icon-show-128.png
 ├── LICENSE             # MIT License
 └── README.md           # You are here!
 ```
