@@ -1,11 +1,22 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "Hide N Seek (block media)",
   "version": "1.1",
   "description": "Browse the web safely: hide sensitive images and videos, keep layouts clean, and reveal only what you want with a single click.",
-  "permissions": ["storage", "scripting", "activeTab"],
-  "host_permissions": ["<all_urls>"],
-  "action": {
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "hide-n-seek@albertolicea.dev",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "<all_urls>"
+  ],
+  "browser_action": {
     "default_popup": "popup.html",
     "default_title": "Block Media",
     "default_icon": {
@@ -17,7 +28,8 @@
     }
   },
   "background": {
-    "service_worker": "background.js"
+    "scripts": ["background.js"],
+    "persistent": false
   },
   "content_scripts": [
     {
@@ -34,10 +46,6 @@
     "128": "icons/icon-show-128.png"
   },
   "web_accessible_resources": [
-  {
-    "resources": ["assets/placeholder.gif"],
-    "matches": ["<all_urls>"]
-  }
-]
-
+    "assets/placeholder.gif"
+  ]
 }

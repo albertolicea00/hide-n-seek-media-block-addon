@@ -1,9 +1,13 @@
 // background.js
 
+// Manifest V2 / V3 Compatibility Shim
+const isMV3 = typeof chrome.action !== 'undefined';
+const actionAPI = isMV3 ? chrome.action : chrome.browserAction;
+
 // Function to update the extension icon based on enabled state
 function updateIcon(enabled) {
   const prefix = enabled ? 'icon-hide' : 'icon-show';
-  chrome.action.setIcon({
+  actionAPI.setIcon({
     path: {
       "16": `icons/${prefix}-16.png`,
       "32": `icons/${prefix}-32.png`,
