@@ -1,6 +1,6 @@
 <div align="left">
   <h1>🙈 Hide & Seek - Media Blocker</h1>
-  <p><strong>A high-performance browser extension designed to help you browse the web safely and discreetly.</strong></p>
+  <p><strong>A high-performance, cross-browser extension designed to help you browse the web safely, discreetly, and custom-tailored to your privacy needs.</strong></p>
   <p>
     <a href="#-from-extension-stores-recommended"><img src="https://img.shields.io/badge/Chrome_Web_Store-Available-4285F4?style=flat-square&logo=google-chrome&logoColor=white" alt="Chrome Web Store" /></a>
     <a href="#-from-extension-stores-recommended"><img src="https://img.shields.io/badge/Firefox_Add--ons-Available-FF7139?style=flat-square&logo=firefox-browser&logoColor=white" alt="Firefox Add-ons" /></a>
@@ -14,129 +14,122 @@
   </p>
 </div>
 
+---
 
 ## 🚀 Why Hide & Seek?
 
-Sometimes you need to browse the web safely, whether in a public space, at work, or simply to protect yourself from unwanted explicit content. **Hide N Seek** automatically hides sensitive images, videos, and thumbnails, allowing you to navigate even the most explicit websites without seeing anything you don't want to.
+Sometimes you need to browse the web safely, whether in a public space, at work, or simply to protect yourself from unwanted explicit content. **Hide & Seek** automatically hides sensitive images, videos, and thumbnails, allowing you to navigate even the most explicit websites without seeing anything you don't want to.
+
+---
 
 ## ✨ Features
 
-- 🛡️ **Instant Protection**: Automatically blurs images, videos, iframes, and background images as they load.
-- 🕶️ **Deep Obfuscation**: Uses extreme blurring and grayscale filters to ensure content is completely unrecognizable, preserving your privacy and peace of mind.
-- 🖱️ **Click-to-Reveal**: See something you're interested in? Just click once to reveal the specific piece of media instantly.
-- 🧩 **Layout Preserving**: Unlike other blockers that break websites, Hide N Seek maintains the original layout, so the web looks exactly as intended—just blurred.
-- ⚡ **High Performance**: Built with pure CSS and efficient JavaScript for zero lag and minimal CPU usage.
-- 🎚️ **Easy Toggle**: Turn the protection on or off with a single click from the extension popup.
+- 🛡️ **Instant Protection**: Automatically blurs, blackouts, or overlays placeholder images onto media elements as they load.
+- 🖱️ **Direct-Click Toggle**: Activate or deactivate the blocking system immediately by clicking the extension icon in your browser toolbar.
+- 🎨 **Customized Obfuscation**: Choose between three modes of blocking:
+  - **Blur**: Mask shapes and explicit details with custom blur intensity.
+  - **Solid Blackout**: Turn all media elements completely pitch black.
+  - **Custom Placeholder**: Overlay a beautiful abstract image or any URL of your choice over blocked media.
+- ⚙️ **Browser Refresh Option**: Opt to automatically reload the active tab when toggling protection on/off.
+- 🔍 **Whitelisting**: Exclude specific domains where blocking should never be active.
+- 🖱️ **Click-to-Reveal**: See something you're interested in? Just click once to reveal that specific element instantly.
+- ⚡ **High Performance**: Uses lightweight, dynamically-generated stylesheets for zero lag and minimal CPU usage.
 
-### What gets hidden
-
-- ✅ `Images` (including background images)
-- ✅ `Videos`
-- ✅ `Iframes` (embedded content)
-- ✅ `Thumbnails`
-
-
-## 📥 Installation
-
-### 🌐 From Extension Stores (Recommended)
-
-Installing from the official stores is the easiest way to get **Hide N Seek** and ensure it stays updated automatically.
-> ⚠️ **Coming soon — currently under review**
-<!-- TODO -->
-<!-- 1. **Google Chrome & Chromium-based browsers (Brave, Vivaldi, Opera)**
-   - 👉 [Download on Chrome Web Store](https://chromewebstore.google.com/)
-   - Click **"Add to Chrome"** and confirm.
-
-2. **Microsoft Edge**
-   - 👉 [Download on Edge Add-ons](https://microsoftedge.microsoft.com/addons)
-   - Click **"Get"** and confirm.
-
-3. **Mozilla Firefox**
-   - 👉 [Download on Firefox Add-ons](https://addons.mozilla.org/)
-   - Click **"Add to Firefox"** and confirm. -->
-
-### 🛠️ Manual Installation (Developer Mode)
-
-If you want to test the latest features or contribute to the project, you can install the extension manually.
-
-#### 1. 📥 Download or clone this repository:
-```bash
-git clone https://github.com/albertolicea00/hide-n-seek-block-media-addon.git
-```
-
-#### 2. Load the Extension in Your Browser:
-
-##### For Google Chrome & Chromium-based browsers (Edge, Brave, Opera):
-1. 🌐 Open your browser and go to `chrome://extensions/` (or `edge://extensions/`).
-2. 🔓 Enable **"Developer mode"** in the top right corner.
-3. 📂 Click **"Load unpacked"** and select the extension folder.
-
-##### For Mozilla Firefox:
-1. 🦊 Open Firefox and go to `about:debugging#/runtime/this-firefox`.
-2. 📂 Click **"Load Temporary Add-on..."**.
-3. 📄 Select the `manifest.json` file in the extension folder.
-
-#### 3. 📌 Pin the **Hide N Seek** icon to your toolbar for easy access!
-
-
-## 🧑‍💻 Usage
-
-### Standard Protection
-
-1. **Activate**: Click on the **Hide N Seek** icon in your toolbar, and toggle the switch to **"ON"**. 🟢
-2. **Browse Safely**: All media on websites will instantly become blurred and unrecognizable.
-3. **Reveal Media**: Curious about a specific image or video? Simply **click on it** to reveal the original content. 👁️
-4. **Deactivate**: Toggle the switch to **"OFF"** from the popup to return to normal browsing. 🔴
-
+---
 
 ## 🏗️ Project Structure
 
 ```
 Hide N Seek/
-├── manifest.json       # Extension config (Manifest V3)
-├── background.js       # Service Worker — manages extension state
-├── content_script.js   # Injected script — handles blurring and reveal logic
-├── styles.css          # Injected styles — CSS filters for obfuscation
-├── popup.html          # Extension popup UI
-├── popup.js            # Popup logic — toggles protection on/off
-├── icons/              # Extension icons (16, 32, 48, 64, 128)
-│   ├── icon-hide-16.png / icon-show-16.png
-│   ├── icon-hide-32.png / icon-show-32.png
-│   ├── icon-hide-48.png / icon-show-48.png
-│   ├── icon-hide-64.png / icon-show-64.png
-│   └── icon-hide-128.png / icon-show-128.png
-├── LICENSE             # MIT License
-└── README.md           # You are here!
+├── manifest.v3.json     # Chrome-specific config (Manifest V3)
+├── manifest.v2.json     # Firefox-specific config (Manifest V2)
+├── Makefile             # Compiles manifests & bundles zip packages
+├── background.js        # Service Worker/Event Page - handles toolbar toggle & reload
+├── content_script.js    # Injected script - dynamically compiles & applies style rules
+├── styles.css           # Injected stylesheet - styles cursor & reveal transitions
+├── options.html         # Gorgeous preferences UI (system dark/light adaptive)
+├── options.js           # Logic for settings saving and live previewing
+├── icons/               # Extension branding assets
+└── dist/                # Target directory for built store zip packages (ignored)
 ```
 
+---
+
+## 🛠️ Build & Development Commands
+
+This project uses a `Makefile` to target different browser standard specifications.
+
+| Command | Action |
+| --- | --- |
+| `make chrome` | Switches the active configuration to **Manifest V3 (Chrome)** |
+| `make firefox` | Switches the active configuration to **Manifest V2 (Firefox)** |
+| `make build` | Generates browser-ready zip packages in the `dist/` directory |
+| `make clean` | Cleans up the `dist/` directory and removes temporary active manifest |
+
+---
+
+## 📥 Installation
+
+### 🌐 From Extension Stores (Recommended)
+
+Installing from the official stores is the easiest way to get **Hide & Seek** and ensure it stays updated automatically.
+> ⚠️ **Coming soon — currently under review**
+
+### 🛠️ Manual Installation (Developer Mode)
+
+To install the extension manually for development, follow these steps:
+
+#### 1. Clone this repository:
+```bash
+git clone https://github.com/albertolicea00/hide-n-seek-block-media-addon.git
+cd hide-n-seek-block-media-addon
+```
+
+#### 2. Select your browser profile:
+Select the active configuration depending on your browser:
+* **For Chrome / Chromium / Edge / Opera / Brave**:
+  ```bash
+  make chrome
+  ```
+* **For Mozilla Firefox**:
+  ```bash
+  make firefox
+  ```
+
+#### 3. Load the Extension:
+
+##### For Google Chrome & Chromium-based browsers:
+1. Open your browser and navigate to `chrome://extensions/`.
+2. Enable **"Developer mode"** in the top right corner.
+3. Click **"Load unpacked"** and select the clone directory containing `manifest.json`.
+
+##### For Mozilla Firefox:
+1. Open Firefox and navigate to `about:debugging#/runtime/this-firefox`.
+2. Click **"Load Temporary Add-on..."**.
+3. Select the `manifest.json` file inside the clone folder.
+
+---
+
+## 🧑‍💻 Usage
+
+1. **Activate**: Click on the **Hide & Seek** icon in your toolbar. The icon will toggle, and the extension will immediately block media.
+2. **Exclusions**: Right-click the extension icon and select **Options** (or Open Extension Preferences) to define whitelist domains, adjust blur intensity, select blackout modes, or set placeholder images.
+3. **Reveal Media**: Click directly on any blocked image or video on any page to reveal it instantly.
+
+---
 
 ## 🔐 Permissions Explained
 
-| Permission   | Why it's needed                                        |
-| ------------ | ------------------------------------------------------ |
-| `activeTab`  | Access the currently active tab to inject CSS and scripts |
-| `scripting`  | Inject the CSS filters and reveal logic into the page  |
-| `storage`    | Persist your toggle ON/OFF state across sessions       |
+| Permission | Why it's needed |
+| --- | --- |
+| `activeTab` | Access the active page to apply obfuscation styles and click interceptors. |
+| `scripting` | Programmatically inject scripts/CSS under Manifest V3. |
+| `storage` | Save preferences (whitelists, blocking modes, custom URLs) securely across sessions. |
 
-> ⚠️ **No data is ever collected, transmitted, or stored externally.** Everything runs locally in your browser.
+> ⚠️ **No data is ever collected, transmitted, or stored externally.** All operations are performed 100% locally in your browser context.
 
-
-## 🤝 Contributing
-
-Contributions are welcome! Please read the [CONTRIBUTING.md](CONTRIBUTING.md) guide before submitting a pull request or opening an issue.
-
+---
 
 ## 📄 License
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
-
-
-## 👤 Author
-
-**Alberto Licea** — [@albertolicea00](https://github.com/albertolicea00)
-
----
-
-<p align="center">
-  <i>Browse carefully. Reveal only what you want. 🤫</i>
-</p>

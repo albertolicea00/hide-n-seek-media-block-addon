@@ -16,8 +16,8 @@
     "activeTab",
     "<all_urls>"
   ],
+  "options_page": "options.html",
   "browser_action": {
-    "default_popup": "popup.html",
     "default_title": "Block Media",
     "default_icon": {
       "16": "icons/icon-show-16.png",

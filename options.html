@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hide & Seek — Preferences</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font-family-title: 'Outfit', system-ui, sans-serif;
+      --font-family-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+      
+      /* Light Mode Palette */
+      --bg-color: #f8fafc;
+      --card-bg: #ffffff;
+      --text-color: #0f172a;
+      --text-muted: #64748b;
+      --accent-color: #6366f1; /* Indigo */
+      --accent-hover: #4f46e5;
+      --accent-light: #e0e7ff;
+      --border-color: #e2e8f0;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+      --radius: 16px;
+      --radius-sm: 8px;
+      --card-padding: 32px;
+      --input-bg: #f1f5f9;
+      --input-border: #cbd5e1;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        /* Dark Mode Palette */
+        --bg-color: #090d16;
+        --card-bg: #111827;
+        --text-color: #f8fafc;
+        --text-muted: #94a3b8;
+        --accent-color: #818cf8; /* Light Indigo */
+        --accent-hover: #6366f1;
+        --accent-light: #1e1b4b;
+        --border-color: #1f2937;
+        --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+        --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+        --input-bg: #1f2937;
+        --input-border: #374151;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Header styling */
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+      animation: fadeInDown 0.6s ease;
+    }
+
+    .logo-container {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 72px;
+      height: 72px;
+      background: linear-gradient(135deg, var(--accent-color), #a5b4fc);
+      border-radius: 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4);
+      font-size: 32px;
+      color: white;
+    }
+
+    h1 {
+      font-family: var(--font-family-title);
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    /* Cards layout */
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: var(--card-padding);
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+      animation: fadeInUp 0.6s ease both;
+    }
+
+    .card:nth-child(2) { animation-delay: 0.1s; }
+    .card:nth-child(3) { animation-delay: 0.2s; }
+    .card:nth-child(4) { animation-delay: 0.3s; }
+
+    .card-title {
+      font-family: var(--font-family-title);
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px dashed var(--border-color);
+      padding-bottom: 12px;
+    }
+
+    .card-title .icon {
+      font-size: 20px;
+    }
+
+    /* Form controls styling */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .form-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    label {
+      font-weight: 500;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .label-desc {
+      font-weight: 400;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Switch toggle button */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 48px;
+      height: 26px;
+      flex-shrink: 0;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: var(--input-bg);
+      border: 1px solid var(--border-color);
+      transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: var(--text-color);
+      transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: var(--accent-color);
+      border-color: var(--accent-color);
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(22px);
+      background-color: white;
+    }
+
+    /* Dropdown select menu */
+    select {
+      background-color: var(--input-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      outline: none;
+      cursor: pointer;
+      min-width: 180px;
+    }
+
+    select:focus {
+      border-color: var(--accent-color);
+    }
+
+    /* Slider intensity styling */
+    .slider-container {
+      margin-top: 15px;
+      padding: 12px 16px;
+      background-color: var(--input-bg);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-color);
+    }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .range-slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 5px;
+      background: var(--border-color);
+      outline: none;
+    }
+
+    .range-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--accent-color);
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(99, 102, 241, 0.5);
+      border: 2px solid var(--card-bg);
+      transition: transform 0.1s ease;
+    }
+
+    .range-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.15);
+    }
+
+    /* Checkbox list */
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .checkbox-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .checkbox-custom-container {
+      display: block;
+      position: relative;
+      padding-left: 28px;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      user-select: none;
+    }
+
+    .checkbox-custom-container input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+
+    .checkmark {
+      position: absolute;
+      top: 1px;
+      left: 0;
+      height: 18px;
+      width: 18px;
+      background-color: var(--input-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 4px;
+    }
+
+    .checkbox-custom-container:hover input ~ .checkmark {
+      background-color: var(--border-color);
+    }
+
+    .checkbox-custom-container input:checked ~ .checkmark {
+      background-color: var(--accent-color);
+      border-color: var(--accent-color);
+    }
+
+    .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+
+    .checkbox-custom-container input:checked ~ .checkmark:after {
+      display: block;
+    }
+
+    .checkbox-custom-container .checkmark:after {
+      left: 5px;
+      top: 2px;
+      width: 4px;
+      height: 8px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+
+    /* Text inputs */
+    .text-input {
+      width: 100%;
+      background-color: var(--input-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      padding: 10px 16px;
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      margin-top: 8px;
+    }
+
+    .text-input:focus {
+      border-color: var(--accent-color);
+    }
+
+    /* Image preview card */
+    .placeholder-preview-card {
+      margin-top: 15px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .preview-thumbnail {
+      width: 100%;
+      height: 120px;
+      background-size: cover;
+      background-position: center;
+      background-color: #1e293b;
+      position: relative;
+    }
+
+    .preview-info {
+      padding: 10px 14px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: var(--input-bg);
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 11px;
+      font-weight: 500;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--border-color);
+    }
+
+    /* Text area whitelist */
+    textarea.text-input {
+      min-height: 100px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    /* Footer styling */
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--text-muted);
+      font-size: 13px;
+      padding-bottom: 20px;
+    }
+
+    footer p {
+      margin-bottom: 6px;
+    }
+
+    footer a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Toast notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: #10b981; /* Green */
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-size: 14px;
+      box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.4);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 9999;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* Conditional displays styling */
+    .conditional-section {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
+    }
+
+    .conditional-section.visible {
+      max-height: 300px; /* Adjust according to contents */
+      opacity: 1;
+      margin-top: 15px;
+    }
+
+    /* Keyframe Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo-container">🙈</div>
+      <h1>Hide & Seek</h1>
+      <p class="subtitle">Personalize your media protection preferences</p>
+    </header>
+
+    <main>
+      <!-- General Settings -->
+      <section class="card">
+        <h2 class="card-title">
+          <span class="icon">⚙️</span> General Behavior
+        </h2>
+        
+        <div class="form-group">
+          <div class="form-row">
+            <label for="reloadOnToggle">
+              Auto-Reload Active Tab
+              <span class="label-desc">Automatically refresh the active tab when clicking the toolbar icon to toggle state</span>
+            </label>
+            <div class="switch">
+              <input type="checkbox" id="reloadOnToggle">
+              <span class="slider"></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blocking Styles & Filters -->
+      <section class="card">
+        <h2 class="card-title">
+          <span class="icon">🎨</span> Obfuscation Settings
+        </h2>
+
+        <div class="form-group">
+          <div class="form-row">
+            <label for="obfuscationMode">
+              Obfuscation Mode
+              <span class="label-desc">Select how sensitive media is blocked</span>
+            </label>
+            <select id="obfuscationMode">
+              <option value="blur">Blur (Standard)</option>
+              <option value="blackout">Solid Blackout</option>
+              <option value="placeholder">Custom Placeholder Image</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Blur Mode Options -->
+        <div id="blurOptionsSection" class="conditional-section">
+          <div class="form-group">
+            <div class="slider-container">
+              <div class="slider-header">
+                <span>Blur Intensity</span>
+                <span id="blurIntensityValue">40px</span>
+              </div>
+              <input type="range" id="blurLevel" class="range-slider" min="10" max="100" step="5" value="40">
+            </div>
+          </div>
+
+          <div class="form-group" style="margin-top: 15px;">
+            <div class="form-row">
+              <label for="useGrayscale">
+                Grayscale Filter
+                <span class="label-desc">Remove colors from blurred elements for maximum discretion</span>
+              </label>
+              <div class="switch">
+                <input type="checkbox" id="useGrayscale">
+                <span class="slider"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Placeholder Mode Options -->
+        <div id="placeholderOptionsSection" class="conditional-section">
+          <div class="form-group">
+            <label for="placeholderUrl">
+              Placeholder Image URL
+              <span class="label-desc">Enter the URL of the image to display over blocked media</span>
+            </label>
+            <input type="text" id="placeholderUrl" class="text-input" placeholder="https://...">
+            
+            <div class="placeholder-preview-card">
+              <div id="placeholderPreview" class="preview-thumbnail"></div>
+              <div class="preview-info">
+                <span>Preview</span>
+                <button type="button" id="btnResetPlaceholder" class="btn-secondary">Reset Default</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blocked Content Categories -->
+      <section class="card">
+        <h2 class="card-title">
+          <span class="icon">👁️</span> Content Categories
+        </h2>
+
+        <div class="form-group">
+          <p class="label-desc" style="margin-bottom: 15px; font-size: 13px;">Choose which types of media elements to block:</p>
+          
+          <div class="checkbox-item">
+            <label class="checkbox-custom-container" for="blockImages">
+              Images
+              <span class="label-desc">Blocks standard images (&lt;img&gt;) and CSS background images</span>
+              <input type="checkbox" id="blockImages">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
+          <div class="checkbox-item">
+            <label class="checkbox-custom-container" for="blockVideos">
+              Videos
+              <span class="label-desc">Blocks native video players (&lt;video&gt;)</span>
+              <input type="checkbox" id="blockVideos">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
+          <div class="checkbox-item">
+            <label class="checkbox-custom-container" for="blockIframes">
+              Embedded Iframes
+              <span class="label-desc">Blocks embedded media elements like YouTube, Vimeo, and third-party media widgets</span>
+              <input type="checkbox" id="blockIframes">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Whitelist / Exceptions -->
+      <section class="card">
+        <h2 class="card-title">
+          <span class="icon">🛡️</span> Domain Exclusions
+        </h2>
+
+        <div class="form-group">
+          <label for="whitelist">
+            Whitelisted Domains
+            <span class="label-desc">Enter domains (one per line) where media should never be blocked. (e.g. youtube.com)</span>
+          </label>
+          <textarea id="whitelist" class="text-input" placeholder="example.com&#10;anotherdomain.org" spellcheck="false"></textarea>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>🙈 <strong>Hide & Seek</strong> is 100% private. No data leaves your machine.</p>
+      <p>Created by <a href="https://github.com/albertolicea00" target="_blank" rel="noopener noreferrer">Alberto Licea</a></p>
+    </footer>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
+    <span>✓</span> Settings saved successfully!
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>

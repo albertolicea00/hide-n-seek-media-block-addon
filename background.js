@@ -33,7 +33,27 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
   if (namespace === 'sync' && changes.bm_block_enabled) {
     const enabled = changes.bm_block_enabled.newValue !== false; // default true
     updateIcon(enabled);
+
+    // Reload active tab if user enabled the auto-reload preference
+    chrome.storage.sync.get(['bm_reload_on_toggle'], (res) => {
+      if (res.bm_reload_on_toggle === true) {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+          if (tabs && tabs[0] && tabs[0].id) {
+            chrome.tabs.reload(tabs[0].id);
+          }
+        });
+      }
+    });
   }
+});
+
+// Toggle extension state on clicking the toolbar extension icon
+actionAPI.onClicked.addListener(() => {
+  chrome.storage.sync.get(['bm_block_enabled'], (res) => {
+    const currentState = res.bm_block_enabled !== false; // default true
+    const newState = !currentState;
+    chrome.storage.sync.set({ bm_block_enabled: newState });
+  });
 });
 
 chrome.runtime.onInstalled.addListener(() => {

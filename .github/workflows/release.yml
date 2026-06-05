@@ -24,12 +24,12 @@ jobs:
       - name: Build Chrome MV3 Package
         run: |
           make chrome
-          zip -r hide-n-seek-manifest-v3.zip manifest.json background.js content_script.js styles.css popup.html popup.js icons README.md LICENSE
+          zip -r hide-n-seek-manifest-v3.zip manifest.json background.js content_script.js styles.css options.html options.js icons README.md LICENSE
 
       - name: Build Firefox MV2 Package
         run: |
           make firefox
-          zip -r hide-n-seek-manifest-v2.zip manifest.json background.js content_script.js styles.css popup.html popup.js icons README.md LICENSE
+          zip -r hide-n-seek-manifest-v2.zip manifest.json background.js content_script.js styles.css options.html options.js icons README.md LICENSE
 
       - name: Upload Chrome MV3 Artifact (Workflow Run)
         uses: actions/upload-artifact@v4
