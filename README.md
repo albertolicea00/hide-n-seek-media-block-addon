@@ -148,3 +148,10 @@ Select the active configuration depending on your browser:
 ## 📄 License
 
 This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+
+---
+
+## ⚖️ Legal
+
+- [End User License Agreement (EULA)](EULA.md)
+- [Privacy Policy](PRIVACY_POLICY.md)
