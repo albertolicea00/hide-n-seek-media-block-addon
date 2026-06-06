@@ -26,12 +26,14 @@ Sometimes you need to browse the web safely, whether in a public space, at work,
 
 - 🛡️ **Instant Protection**: Automatically blurs, blackouts, or overlays placeholder images onto media elements as they load.
 - 🖱️ **Direct-Click Toggle**: Activate or deactivate the blocking system immediately by clicking the extension icon in your browser toolbar.
+- 🚪 **Quick Exclusion Context Menu**: Right-click the extension toolbar icon and select **"Exclude this website"** to immediately whitelist the current tab's domain.
 - 🎨 **Customized Obfuscation**: Choose between three modes of blocking:
   - **Blur**: Mask shapes and explicit details with custom blur intensity.
   - **Solid Blackout**: Turn all media elements completely pitch black.
   - **Custom Placeholder**: Overlay a beautiful abstract image or any URL of your choice over blocked media.
 - ⚙️ **Browser Refresh Option**: Opt to automatically reload the active tab when toggling protection on/off.
-- 🔍 **Whitelisting**: Exclude specific domains where blocking should never be active.
+- 🔍 **Whitelisting & Subdomain Wildcards**: Exclude specific domains where blocking should never be active. Wildcard formats like `*.example.com` automatically match the parent domain and all of its subdomains (e.g., `mail.example.com`).
+- 🎯 **Custom CSS Selectors**: Manually block additional elements by class, ID, or custom selector rules (e.g. `.custom-ad`, `#sensitive-media .banner`, etc.) with real-time validation.
 - 🖱️ **Click-to-Reveal**: See something you're interested in? Just click once to reveal that specific element instantly.
 - ⚡ **High Performance**: Uses lightweight, dynamically-generated stylesheets for zero lag and minimal CPU usage.
 
@@ -125,6 +127,7 @@ Select the active configuration depending on your browser:
 | `activeTab` | Access the active page to apply obfuscation styles and click interceptors. |
 | `scripting` | Programmatically inject scripts/CSS under Manifest V3. |
 | `storage` | Save preferences (whitelists, blocking modes, custom URLs) securely across sessions. |
+| `contextMenus` | Create context menu options under the extension toolbar icon (e.g. "Exclude this website"). |
 
 > ⚠️ **No data is ever collected, transmitted, or stored externally.** All operations are performed 100% locally in your browser context.
 
