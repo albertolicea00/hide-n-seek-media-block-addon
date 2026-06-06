@@ -164,3 +164,16 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 
 - [End User License Agreement (EULA)](EULA.md)
 - [Privacy Policy](PRIVACY_POLICY.md)
+
+
+## 👤 Author
+
+**Alberto Licea** — [@albertolicea00](https://github.com/albertolicea00)
+
+---
+
+<p align="center">
+  🙈 &nbsp;<em>What you browse is your business — not ours.</em>&nbsp; 🙉
+  <br/>
+  <sub>Built with privacy-first principles · 100% local · zero tracking · open source</sub>
+</p>
