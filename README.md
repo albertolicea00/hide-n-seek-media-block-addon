@@ -173,7 +173,7 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 ---
 
 <p align="center">
-  🙈 &nbsp;<em>What you browse is your business — not ours.</em>&nbsp; 🙉
+  🙈 &nbsp;<em>You choose what you see. No awkward moments. No explanations needed.</em>&nbsp; 🙈
   <br/>
-  <sub>Built with privacy-first principles · 100% local · zero tracking · open source</sub>
+  <sub>Browse freely · in public · at work · anywhere</sub>
 </p>
