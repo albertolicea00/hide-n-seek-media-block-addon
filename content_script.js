@@ -20,6 +20,8 @@ let activeClickSelectors = 'img, video, iframe, [style*="background-image"]';
 
 // Function to generate and apply dynamic style rules
 function updateDynamicStyles(settings) {
+  console.debug('🙈 Hide & Seek: Running style updates with settings:', settings);
+  
   let styleEl = document.getElementById('bm-dynamic-styles');
   if (!styleEl) {
     styleEl = document.createElement('style');
@@ -51,10 +53,16 @@ function updateDynamicStyles(settings) {
     document.querySelectorAll('.bm-revealed').forEach(el => {
       el.classList.remove('bm-revealed');
     });
+    if (!enabled) {
+      console.info('🙈 Hide & Seek: Blocker is disabled globally.');
+    } else {
+      console.info(`🙈 Hide & Seek: Current domain (${hostname}) is whitelisted. Blocker disabled for this page.`);
+    }
     return;
   }
 
-  document.documentElement.classList.add('bm-active');
+  try {
+    document.documentElement.classList.add('bm-active');
 
   const selectors = [];
   const blockImages = settings[KEYS.blockImages] !== false; // default true
@@ -193,7 +201,11 @@ function updateDynamicStyles(settings) {
     }
   }
 
-  styleEl.textContent = rules;
+    styleEl.textContent = rules;
+    console.info(`🙈 Hide & Seek: Active blocking rules injected. Mode: "${mode}". Selectors count: ${selectors.length}. Active selector list:`, activeClickSelectors);
+  } catch (err) {
+    console.error('🙈 Hide & Seek: Error applying dynamic styles:', err.message);
+  }
 }
 
 // Helper to refresh settings and update styles
@@ -237,6 +249,7 @@ document.addEventListener('click', (e) => {
   const target = e.target.closest(activeClickSelectors || 'img, video, iframe, [style*="background-image"]');
   
   if (target && !target.classList.contains('bm-revealed')) {
+    console.log('🙈 Hide & Seek: Intercepted click on blocked element. Revealing media:', target);
     // Intercept the click on first click to reveal the blocked media
     e.preventDefault();
     e.stopPropagation();

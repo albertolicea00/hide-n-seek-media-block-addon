@@ -26,6 +26,7 @@ function updateIcon(enabled) {
 chrome.storage.sync.get(['bm_block_enabled'], (res) => {
   const enabled = res.bm_block_enabled !== false; // default true
   updateIcon(enabled);
+  console.info(`🙈 Hide & Seek: Background worker started. Current blocker state (enabled): ${enabled}`);
 });
 
 // Listen to changes in storage to update the icon dynamically
@@ -33,12 +34,14 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
   if (namespace === 'sync' && changes.bm_block_enabled) {
     const enabled = changes.bm_block_enabled.newValue !== false; // default true
     updateIcon(enabled);
+    console.info(`🙈 Hide & Seek: Block enabled state changed in storage to: ${enabled}`);
 
     // Reload active tab if user enabled the auto-reload preference
     chrome.storage.sync.get(['bm_reload_on_toggle'], (res) => {
       if (res.bm_reload_on_toggle === true) {
         chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
           if (tabs && tabs[0] && tabs[0].id) {
+            console.info(`🙈 Hide & Seek: Auto-reloading tab ${tabs[0].id} due to state toggle.`);
             chrome.tabs.reload(tabs[0].id);
           }
         });
@@ -52,6 +55,7 @@ actionAPI.onClicked.addListener(() => {
   chrome.storage.sync.get(['bm_block_enabled'], (res) => {
     const currentState = res.bm_block_enabled !== false; // default true
     const newState = !currentState;
+    console.log(`🙈 Hide & Seek: Toolbar icon clicked. Toggling state: ${currentState} -> ${newState}`);
     chrome.storage.sync.set({ bm_block_enabled: newState });
   });
 });

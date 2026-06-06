@@ -249,6 +249,7 @@ function processTagInput(inputEl, tagArray, renderFn) {
   });
 
   if (invalidParts.length > 0) {
+    console.warn(`🙈 Hide & Seek: Validation failed for input on ${inputEl.id}. Invalid parts:`, invalidParts);
     // Mark input container as invalid
     inputEl.classList.add('invalid');
     
@@ -272,6 +273,7 @@ function processTagInput(inputEl, tagArray, renderFn) {
   }
 
   if (validParts.length > 0) {
+    console.log(`🙈 Hide & Seek: Adding new valid entries:`, validParts);
     tagArray.push(...validParts);
     renderFn();
     saveOptions();
