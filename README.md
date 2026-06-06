@@ -5,6 +5,7 @@
     <a href="#-from-extension-stores-recommended"><img src="https://img.shields.io/badge/Chrome_Web_Store-Available-4285F4?style=flat-square&logo=google-chrome&logoColor=white" alt="Chrome Web Store" /></a>
     <a href="#-from-extension-stores-recommended"><img src="https://img.shields.io/badge/Firefox_Add--ons-Available-FF7139?style=flat-square&logo=firefox-browser&logoColor=white" alt="Firefox Add-ons" /></a>
     <a href="#-from-extension-stores-recommended"><img src="https://img.shields.io/badge/Edge_Add--ons-Available-0078D7?style=flat-square&logo=microsoft-edge&logoColor=white" alt="Edge Add-ons" /></a>
+    <a href="#-from-extension-stores-recommended"><img src="https://img.shields.io/badge/Opera_Add--ons-Available-FF1B2D?style=flat-square&logo=opera&logoColor=white" alt="Opera Add-ons" /></a>
   </p>
   <p>
     <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript" />
@@ -75,7 +76,15 @@ This project uses a `Makefile` to target different browser standard specificatio
 ### 🌐 From Extension Stores (Recommended)
 
 Installing from the official stores is the easiest way to get **Hide & Seek** and ensure it stays updated automatically.
-> ⚠️ **Coming soon — currently under review**
+
+> ⚠️ **Firefox, Chrome, Edge, Opera versions on the way — review in progress**
+
+<!-- 
+- 🟢 **Chrome** (Brave, Vivaldi): [Download from Chrome Web Store](https://chromewebstore.google.com/detail/hideNseek)
+- 🔵 **Edge**: [Download from Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/hideNseek)
+- 🔴 **Opera**: [Download from Opera Add-ons](https://addons.opera.com/extensions/details/hideNseek)
+- 🦊 **Firefox**: [Download from Firefox Add-ons](https://addons.mozilla.org/en-US/firefox/addon/hideNseek/)
+-->
 
 ### 🛠️ Manual Installation (Developer Mode)
 
