@@ -4,25 +4,42 @@
 ._*
 .Spotlight-V100
 .Trashes
-ehthumbs.db
 Thumbs.db
-
-# Extensions
-*.zip
-*.crx
-*.xpi
-
-# IDEs and Editors
-.idea/
-.vscode/
-*.swp
-*.swo
+ehthumbs.db
+Desktop.ini
 
 # Node
 node_modules/
-npm-debug.log
-yarn-error.log
+npm-debug.log*
+yarn-error.log*
+package-lock.json
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 
 # Build / Dist
 dist/
+build/
+*.zip
+*.crx
+*.pem
 manifest.json
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# dist RRSS assets
+/rrss/*
+/assets/*
+/screenshots/*
+
+# ai stuff
+.agents/
+.claude/
+.continue/
