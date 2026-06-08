@@ -48,11 +48,11 @@ For full details, please review our [Privacy Policy](PRIVACY_POLICY.md).
 
 The Extension requests only the minimum browser permissions necessary for its operation:
 
-| Permission | Purpose |
-|---|---|
-| `activeTab` | Apply obfuscation styles to the currently active page |
-| `scripting` | Inject stylesheets and scripts under Manifest V3 |
-| `storage` | Persist user preferences locally across sessions |
+| Permission     | Purpose                                                               |
+| -------------- | --------------------------------------------------------------------- |
+| `activeTab`    | Apply obfuscation styles to the currently active page                 |
+| `scripting`    | Inject stylesheets and scripts under Manifest V3                      |
+| `storage`      | Persist user preferences locally across sessions                      |
 | `contextMenus` | Provide a right-click toolbar shortcut to exclude the current website |
 
 No permission is used to access, read, or transmit user browsing data or content to any third party.
@@ -63,7 +63,7 @@ No permission is used to access, read, or transmit user browsing data or content
 
 The Extension, its source code, icons, and documentation are the intellectual property of the Licensor and contributors. The source code is open-source and available at:
 
-> https://github.com/albertolicea00/hide-n-seek-block-media-addon
+> https://github.com/albertolicea00/hide-n-seek-media-block-addon
 
 All contributions submitted via Pull Requests are accepted under the MIT License.
 
@@ -115,8 +115,8 @@ This EULA shall be governed by and construed in accordance with applicable law. 
 
 For questions, concerns, or feedback regarding this EULA, please open an issue on the GitHub repository:
 
-> https://github.com/albertolicea00/hide-n-seek-block-media-addon/issues
+> https://github.com/albertolicea00/hide-n-seek-media-block-addon/issues
 
 ---
 
-*By using Hide & Seek, you acknowledge that you have read and understood this EULA and agree to be bound by its terms.*
+_By using Hide & Seek, you acknowledge that you have read and understood this EULA and agree to be bound by its terms._

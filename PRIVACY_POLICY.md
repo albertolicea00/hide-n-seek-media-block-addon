@@ -17,7 +17,7 @@
 
 Hide & Seek is an open-source browser extension developed and maintained by its contributors on GitHub:
 
-> https://github.com/albertolicea00/hide-n-seek-block-media-addon
+> https://github.com/albertolicea00/hide-n-seek-media-block-addon
 
 The project is maintained by **albertolicea00** and open-source contributors. There is no company, legal entity, or data processing organization behind this Extension.
 
@@ -42,14 +42,14 @@ There are **no servers**, **no databases**, **no third-party SDKs**, and **no an
 
 The Extension stores the following **user preferences** using the browser's native `chrome.storage.sync` / `browser.storage.sync` API. This data lives **only on your device** (and optionally synced to your signed-in browser account by your browser vendor — not by us):
 
-| Setting | Description |
-|---|---|
-| `enabled` | Whether the Extension is currently active (ON/OFF) |
-| `mode` | Active blocking mode (`blur`, `blackout`, or `placeholder`) |
-| `blurAmount` | Blur intensity in pixels |
-| `placeholderUrl` | Custom image URL for placeholder mode |
-| `autoReload` | Whether to reload the tab when toggling protection |
-| `whitelist` | List of domains excluded from blocking |
+| Setting           | Description                                                 |
+| ----------------- | ----------------------------------------------------------- |
+| `enabled`         | Whether the Extension is currently active (ON/OFF)          |
+| `mode`            | Active blocking mode (`blur`, `blackout`, or `placeholder`) |
+| `blurAmount`      | Blur intensity in pixels                                    |
+| `placeholderUrl`  | Custom image URL for placeholder mode                       |
+| `autoReload`      | Whether to reload the tab when toggling protection          |
+| `whitelist`       | List of domains excluded from blocking                      |
 | `customSelectors` | Custom CSS selectors the user added for additional blocking |
 
 This data is **never read, accessed, or transmitted by us**. It is used solely to restore your settings when you reload a tab or reopen your browser.
@@ -63,15 +63,19 @@ This data is **never read, accessed, or transmitted by us**. It is used solely t
 The Extension requests only the permissions required for its core functionality:
 
 ### `activeTab`
+
 Used to inject obfuscation CSS and click-to-reveal JavaScript into the currently active tab when the Extension is enabled. The Extension **does not read** the content of pages or any text/data on them.
 
 ### `scripting`
+
 Required under Manifest V3 (Chrome/Edge) to programmatically inject stylesheets. No content is extracted from the page.
 
 ### `storage`
+
 Used to save and retrieve your preferences locally via `chrome.storage.sync`. Data is never sent to us.
 
 ### `contextMenus`
+
 Used to create the right-click context menu on the Extension toolbar icon (e.g., "Exclude this website"). Clicking this option adds the current site's domain to your local whitelist — it is never logged or transmitted.
 
 ---
@@ -81,6 +85,7 @@ Used to create the right-click context menu on the Extension toolbar icon (e.g.,
 This Extension does **not** integrate with any third-party services, APIs, advertising networks, analytics platforms, or crash reporting tools.
 
 There are no:
+
 - Google Analytics, Mixpanel, or similar trackers
 - Firebase or cloud databases
 - Remote feature flags or A/B testing services
@@ -92,7 +97,7 @@ There are no:
 
 The Extension is fully open-source. You can inspect every line of code that runs in your browser:
 
-> https://github.com/albertolicea00/hide-n-seek-block-media-addon
+> https://github.com/albertolicea00/hide-n-seek-media-block-addon
 
 We encourage you to review the source code if you have any concerns about what the Extension does. Community audits and contributions are welcome.
 
@@ -116,8 +121,8 @@ We encourage you to periodically review this document.
 
 If you have any questions about this Privacy Policy or the Extension's behavior, please open an issue on GitHub:
 
-> https://github.com/albertolicea00/hide-n-seek-block-media-addon/issues
+> https://github.com/albertolicea00/hide-n-seek-media-block-addon/issues
 
 ---
 
-*Hide & Seek respects your privacy completely. What you browse is your business — not ours.*
+_Hide & Seek respects your privacy completely. What you browse is your business — not ours._

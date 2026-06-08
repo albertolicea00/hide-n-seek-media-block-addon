@@ -23,7 +23,7 @@ publish:
 	git push origin v$(VERSION)
 	@echo "✅ Publish triggered! GitHub Actions will now build and release to stores."
 	@echo "📝 In a few moments, you can/should edit the Release Notes here:"
-	@echo "👉 https://github.com/albertolicea00/hide-n-seek-block-media-addon/releases/edit/v$(VERSION)"
+	@echo "👉 https://github.com/albertolicea00/hide-n-seek-media-block-addon/releases/edit/v$(VERSION)"
 
 build:
 	@echo "🙈 Hide & Seek: Building version $(VERSION) in $(DIST_DIR)..."

@@ -7,7 +7,7 @@ Thank you for your interest in contributing to Hide & Seek! This guide will help
 1. **Fork** the repository on GitHub
 2. **Clone** your fork locally:
    ```bash
-   git clone https://github.com/albertolicea00/hide-n-seek-block-media-addon.git
+   git clone https://github.com/albertolicea00/hide-n-seek-media-block-addon.git
    ```
 3. **Load** the extension in Chrome:
    - Go to `chrome://extensions/`
