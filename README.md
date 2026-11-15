@@ -140,7 +140,6 @@ Select the active configuration depending on your browser:
 | Permission     | Why it's needed                                                                             |
 | -------------- | ------------------------------------------------------------------------------------------- |
 | `activeTab`    | Access the active page to apply obfuscation styles and click interceptors.                  |
-| `scripting`    | Programmatically inject scripts/CSS under Manifest V3.                                      |
 | `storage`      | Save preferences (whitelists, blocking modes, custom URLs) securely across sessions.        |
 | `contextMenus` | Create context menu options under the extension toolbar icon (e.g. "Exclude this website"). |
 

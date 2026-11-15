@@ -51,7 +51,6 @@ The Extension requests only the minimum browser permissions necessary for its op
 | Permission     | Purpose                                                               |
 | -------------- | --------------------------------------------------------------------- |
 | `activeTab`    | Apply obfuscation styles to the currently active page                 |
-| `scripting`    | Inject stylesheets and scripts under Manifest V3                      |
 | `storage`      | Persist user preferences locally across sessions                      |
 | `contextMenus` | Provide a right-click toolbar shortcut to exclude the current website |
 

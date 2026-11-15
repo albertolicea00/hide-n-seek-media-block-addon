@@ -66,10 +66,6 @@ The Extension requests only the permissions required for its core functionality:
 
 Used to inject obfuscation CSS and click-to-reveal JavaScript into the currently active tab when the Extension is enabled. The Extension **does not read** the content of pages or any text/data on them.
 
-### `scripting`
-
-Required under Manifest V3 (Chrome/Edge) to programmatically inject stylesheets. No content is extracted from the page.
-
 ### `storage`
 
 Used to save and retrieve your preferences locally via `chrome.storage.sync`. Data is never sent to us.
